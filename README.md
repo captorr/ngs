@@ -1,2 +1,2 @@
-# ngs
+# Maybe useful
 Nothing will happen
