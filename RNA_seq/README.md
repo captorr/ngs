@@ -1,6 +1,6 @@
 ## workflow for HISAT2-StringTie
 
-software and scripts requirement:
+software and scripts required:
 
 
 
