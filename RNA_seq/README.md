@@ -14,13 +14,13 @@ software and scripts required:
 > 
 > StringTie v1.3.3b [[Software](http://ccb.jhu.edu/software/stringtie/index.shtml)] [[Manual](http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)]
 > 
-> GC_error.py [underworked](#)
+> GC_error.py [[underworked](#)]
 > 
-> reads_density.py [underworked](#)
+> reads_density.py [[underworked](#)]
 > 
-> RNA\_region\_stat.py [underworked](#)
+> RNA\_region\_stat.py [[underworked](#)]
 > 
-> genetab_sort.py [underworked](#)
+> genetab_sort.py [[underworked](#)]
 > 
 > GTF [[Homo_sapiens.GRCh38.89.chr.gtf](ftp://ftp.ensembl.org/pub/release-89/gtf/homo_sapiens/Homo_sapiens.GRCh38.89.chr.gtf)]
 > 
