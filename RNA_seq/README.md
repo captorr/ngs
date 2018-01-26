@@ -24,7 +24,7 @@ software and scripts requirement:
 > 
 > GTF [[Homo_sapiens.GRCh38.89.chr.gtf](ftp://ftp.ensembl.org/pub/release-89/gtf/homo_sapiens/Homo_sapiens.GRCh38.89.chr.gtf)]
 > 
-> PBS/qsub [<font color=#FF3300>IDK</font>]
+> PBS/qsub \[<font color=#FF3300>IDK</font>\]
 
 * 配合cszhang账号食用。
 
