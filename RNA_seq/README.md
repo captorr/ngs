@@ -18,9 +18,9 @@ software and scripts requirement:
 > 
 > reads_density.py [<font color=#3366FF>underworked</font>]
 > 
-> RNA\_region\_stat.py [<font color=#3366FF>underworked</font>]
+> RNA\_region\_stat.py <font color=#3366FF>[underworked]</font>
 > 
-> genetab_sort.py [<font color=#3366FF>underworked</font>]
+> genetab_sort.py [<font color=#3399FF>underworked</font>]
 > 
 > GTF [[Homo_sapiens.GRCh38.89.chr.gtf](ftp://ftp.ensembl.org/pub/release-89/gtf/homo_sapiens/Homo_sapiens.GRCh38.89.chr.gtf)]
 > 
