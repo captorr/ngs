@@ -6,6 +6,6 @@
 
 * 不知道有啥用
 
-* <del>中午吃了蛋羹</del>
+* <del>中午吃了拉面</del>
 
 * [click here?](https://captorr.github.io/)
