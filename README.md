@@ -8,4 +8,6 @@
 
 * <del>中午吃了拉面</del>
 
+* <del>晚上吃了葱爆羊肉</del>
+
 * [click here?](https://captorr.github.io/)
