@@ -10,7 +10,7 @@ log_site=$2
 file_name1=$3
 stringtie_dir=$4
 HISAT2_result_dir=$5
-total_log=$6
+threads=$6
 
 software_stringtie=/public/source/software/bin/bin/stringtie
 

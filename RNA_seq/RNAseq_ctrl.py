@@ -89,7 +89,7 @@ def shell_making(sh1,sh2,config,task_ctrl,total_log,ST_m2='none'):
     if ST_m2 != "none":
         file4_o = open(ST_m2,'w')
         file4_o.write(PBS_header_ST2)
-        sh4_cmd = "sh /public/source/share/zcs_temp/RNA_workflow/stringtie_rebuild.sh " + task_ctrl + " " + log + " " + file_name + " " + Stringtie + " " + HISAT2 + "\n"
+        sh4_cmd = "sh /public/source/share/zcs_temp/RNA_workflow/stringtie_rebuild.sh " + task_ctrl + " " + log + " " + file_name + " " + Stringtie + " " + HISAT2 + " " + threads + "\n"
         file4_o.write(sh4_cmd)
         file4_o.close()
 

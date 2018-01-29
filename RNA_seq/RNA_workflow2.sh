@@ -61,7 +61,7 @@ echo region exit code: $? >> $log_site
 echo "region comand: $software_python $python_region $HISAT2_bam_file $RNA_region_result/$file_name1 none none $file_name1 $species" >> $log_site
 
 echo work finished at: `date` >> $log_site
-echo $file_name1 sh2 finished at: `date` >> $total_log
+echo $file_name1 sh2 finished at: `date` >> "$total_log"
 
 
 
