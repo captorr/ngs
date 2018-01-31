@@ -179,7 +179,7 @@ def main(input_dir,outputdir,threads, species, nodes, block,total_log,merge):
                     ST_m2 = task_ctrl + '/shell/' + fq_name + '.4.sh'
                 else:
                     ST_m2 = 'none'
-            shell_making(sh1,sh2,conf_file,task_ctrl,ST_m2)
+            shell_making(sh1,sh2,conf_file,task_ctrl,total_log,ST_m2)
             q_sh = task_ctrl + '/' + fq_name + '.q'
             q_sh_o = open(q_sh,'w')
             q_sh_o.write("work1=$(qsub -d " + task_ctrl + "/shell " + sh1 + ")\n")
