@@ -228,7 +228,6 @@ def main(input_dir,outputdir,threads, species, nodes, block,total_log,merge):
     print task_ctrl
 
 
-
 def help1():
     print '\n***************************************************'
     print 'Workflow of RNA-seq analysis. Input: clean fastq dir'
