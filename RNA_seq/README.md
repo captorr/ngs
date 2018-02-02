@@ -28,5 +28,7 @@ software and scripts required:
 
 * 配合cszhang账号食用。
 
+* python RNAseq_ctrl.py -h 查看更多参数，其他脚本择日上传。
+
 * 26日中午吃了正六面体胡萝卜鸡肉、胶体态鸡蛋混合物 and 土豆切片。
 
