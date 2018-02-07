@@ -1,16 +1,19 @@
 """
 Author: Cs.Zhang, @2018.02.06
-python script.py data_table
+Usage: python script.py data_table
+Describe: A Python3 script for 'clinicaltrials.org' search result downloading and parsing.
+Input: table of cancer + gene
+Output: table with rownames ([1]Conditions [2]Gene [3]Interventions [4]Title [5]Phases [6]Locations [7]NCT Number)
 
-data_table example:<tab sep>
-
+Example for Data_table:<tab sep>
+--------------------------------
 cancer1 cancer2 cancerN
 gene1   gene    gene
 gene2   gene    gene
 gene3   gene    ...
 gene4   ...
 ...
-
+--------------------------------
 """
 
 import os,sys,time
@@ -59,18 +62,18 @@ def clinicaltrial_Crawler(cancer1,gene_name):
         print(cancer1,gene_name,'another error:')
         print(e)
     else:
-        print(cancer1,gene_name,': connected, download and parsing now...')
+        print(cancer1,gene_name,': connected, downloading and parsing now...')
         soup = BeautifulSoup(html,"lxml")
         soup = soup.text
     finally:
         return str(soup)
         #return soup
 
-
 def clinicaltrial_text1(gene_name, result_of_crawler):
     global miss_num, good_num
     count = 0
     count_g = 0
+    count_b = 0
     text_line = ''
     text_orignal = ''
     if len(result_of_crawler.split('\n')) > 1:
@@ -84,6 +87,7 @@ def clinicaltrial_text1(gene_name, result_of_crawler):
                     break
                 if not 'Drug' in element[7] or not 'Has' in element[5] or element[28] == '':
                     miss_num += 1
+                    count_b += 1
                     #print(element)
                 else:
                     try:
@@ -93,19 +97,20 @@ def clinicaltrial_text1(gene_name, result_of_crawler):
                         text_temp = element[6] + '\t' + gene_name + '\t' + str(drugs) + '\t' + element[2] + '\t' + element[12] + '\t' + element[28] + '\t' + element[1] + '\n'
                         text_line += text_temp
                         good_num += 1
+                        count_g += 1
                         #print('effective')
                     except:
                         miss_num += 1
+                        count_b += 1
             text_orignal += i + '\n'
-        print('\t',gene_name,':',miss_num,'line(s) deleted.')
-        print('\t',gene_name,':',good_num,'line(s) filtered.')
+        print('\t',gene_name,':',count_b,'line(s) deleted. Total',miss_num,'line(s) deleted.')
+        print('\t',gene_name,':',count_g,'line(s) filtered. Total',good_num,'line(s) filtered.')
     else:
         print(gene_name,'clinicaltrial_text = 1')
         return 0
     #print(text_orignal)
     #print(text_line)
     return text_orignal,text_line
-
 
 def single_gene(cancer,gene_name):
     a = clinicaltrial_Crawler(cancer,gene_name)
@@ -119,7 +124,6 @@ def single_gene(cancer,gene_name):
         t_o,t_line = clinicaltrial_text1(gene_name,a)
         return t_o,t_line
 
-
 def mulit_gene(genelist):
     text_t = ''
     for i in genelist:
@@ -129,45 +133,49 @@ def mulit_gene(genelist):
         for j in gene_l:
             t_orignal, t_line = single_gene(cancer,j)
             text_t += t_line
-    return text_t
+    return text_t.lstrip('\n')
 
+def main1(file_in):
+    global miss_num, good_num
+    miss_num, good_num = 0, 0
+    #file_in = 'D:\\zcs-genex\\180206\\temp1.txt'
+    file_in_o = open(file_in, 'r')
+    names = locals()
+    for i in range(10):
+        names['a_%s' % str(i)] = []
+    count = 0
+    while 1:
+        count += 1
+        temp = file_in_o.readline()
+        if not temp:
+            break
+        line = temp.strip('\n').split('\t')
+        if count == 1:
+            line_len = len(line)
+            line_len1 = len(line)
+        else:
+            line_len1 = len(line)
+        for i in range(line_len1):
+            if line[i] != '':
+                names['a_%s' % str(i)].append(line[i])
+    file_in_o.close()
 
-#file_in = sys.argv[1]
-file_in = 'D:\\zcs-genex\\180206\\temp1.txt'
-file_in_o = open(file_in,'r')
-miss_num, good_num = 0, 0
-
-names = locals()
-for i in range(10):
-    names['a_%s' % str(i)] = []
-count = 0
-while 1:
-    count += 1
-    temp = file_in_o.readline()
-    if not temp:
-        break
-    line = temp.strip('\n').split('\t')
-    if count == 1:
-        line_len = len(line)
+    genelist = []
     for i in range(line_len):
-        if line[i] != '':
-            names['a_%s' % str(i)].append(line[i])
-file_in_o.close()
+        genelist.append(names['a_%s' % str(i)])
+    print('==================================')
+    for i in genelist:
+        print(i[0], ', Gene: ', ' '.join(i[1:]))
+    print('==================================')
+    text = mulit_gene(genelist)
+    file_out = file_in + '.out'
+    file_out_o = open(file_out, 'w', encoding='utf-8')
+    file_out_o.write(text)
+    file_out_o.close()
 
-genelist = []
-for i in range(line_len):
-    genelist.append(names['a_%s' % str(i)])
+if __name__ == '__main__':
+    main1(sys.argv[1])
 
-print('==================================')
-for i in genelist:
-    print(i[0],', Gene: ',' '.join(i[1:]))
-print('==================================')
-
-text = mulit_gene(genelist)
-file_out = file_in + '.out'
-file_out_o = open(file_out,'w',encoding='utf-8')
-file_out_o.write(text)
-file_out_o.close()
 
 
 
