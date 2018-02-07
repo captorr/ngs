@@ -2,15 +2,16 @@
 Author: Cs.Zhang, @2018.02.06
 python script.py data_table
 
-data_table example:<tab sep>
 
+data_table example: <tab sep>
+-------------------------------
 cancer1 cancer2 cancerN
 gene1   gene    gene
 gene2   gene    gene
 gene3   gene    ...
 gene4   ...
 ...
-
+-------------------------------
 """
 
 import os,sys,time
