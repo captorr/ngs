@@ -23,7 +23,7 @@ from urllib import request
 from urllib.request import quote
 import re
 from bs4 import BeautifulSoup
-
+from openpyxl import Workbook
 
 def clinicaltrial_Crawler(cancer1,gene_name):
     cancer = '+'.join(str(cancer1).split(' '))
@@ -43,7 +43,7 @@ def clinicaltrial_Crawler(cancer1,gene_name):
             print(cancer1,gene_name,'not found')
         else:
             soup = 'none'
-            print(cance1r,gene_name,'HTTP ERROR')
+            print(cancer1,gene_name,'HTTP ERROR')
             print(e)
     except URLError as e:
         soup = 'none'
@@ -135,6 +135,25 @@ def mulit_gene(genelist):
             text_t += t_line
     return text_t.lstrip('\n')
 
+def excel_writing(text,output_name,sheet_name):
+    text_excel = text.split('\n\n')
+    Excel = Workbook()
+    for i in range(len(text_excel)):
+        content = text_excel[i].strip('\n').split('\n')
+        content_1 = []
+        for j in content:
+            content_1.append(j.split('\t'))
+        if i == 0:
+            E_temp = Excel.active
+            E_temp.title = str(sheet_name[i])
+        else:
+            E_temp = Excel.create_sheet(title=str(sheet_name[i]))
+        for col in range(len(content_1)):
+            for row in range(len(content_1[col])):
+                E_temp.cell(column=row + 1, row=col + 1, value=content_1[col][row])
+    Excel.save(filename=output_name)
+    print('Excel file saved as: ' + output_name)
+
 def main1(file_in):
     global miss_num, good_num
     miss_num, good_num = 0, 0
@@ -161,10 +180,12 @@ def main1(file_in):
     file_in_o.close()
 
     genelist = []
+    sheet_names = []
     for i in range(line_len):
         genelist.append(names['a_%s' % str(i)])
     print('==================================')
     for i in genelist:
+        sheet_names.append(i[0])
         print(i[0], ', Gene: ', ' '.join(i[1:]))
     print('==================================')
     text = mulit_gene(genelist)
@@ -172,6 +193,11 @@ def main1(file_in):
     file_out_o = open(file_out, 'w', encoding='utf-8')
     file_out_o.write(text)
     file_out_o.close()
+    print('Tsv format file saved as: ' + file_out)
+
+    excel_name = file_in + '.xlsx'
+    excel_writing(text,excel_name,sheet_names)
+
 
 if __name__ == '__main__':
     main1(sys.argv[1])
