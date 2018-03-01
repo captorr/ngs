@@ -2,7 +2,7 @@
 Author: Zhang Chengsheng, @2018.03.01
 Description: search and filter miRNA in form of 'x/x-3p or x/x-5p'
 Usage: python2&3 script.py [1]input file
-Input: starbase_crawler.py output
+Input: starbase_crawler.py output file .out.gene undumplicated
 Output: filter result
 ==========================================
 input example:
