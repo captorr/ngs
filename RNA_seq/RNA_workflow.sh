@@ -61,6 +61,7 @@ stringtie_m=$?
 echo stringtie exit code: 'e:' $stringtie_e 'm:' $stringtie_m >> $log_site
 echo "stringtie command: $software_stringtie ${HISAT2_result_dir}/${file_name1}.sorted.bam -b $stringtie_dir -e -A ${stringtie_dir}/${file_name1}.genetab -G $genome_gtf -C ${stringtie_dir}/${file_name1}.cov_refs.gtf -p $threads -o ${stringtie_dir}/${file_name1}.stringtie.out.gtf" >> $log_site
 $software_python $python_sort ${stringtie_dir}/${file_name1}.genetab
+$software_python $python_sort ${stringtie_dir}/${file_name1}.e.genetab
 
 echo work finished at: `date` >> $log_site
 echo $file_name1 sh1 finished at: `date` >> $total_log
