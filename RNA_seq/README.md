@@ -32,5 +32,8 @@ software and scripts required:
 
 * 26日中午吃了正六面体胡萝卜鸡肉、胶体态鸡蛋混合物 and 土豆切片。
 
-*18.03.02 加了一行
+* 18.03.02 RNAseq-workflow加了一行
+
+
+
 
