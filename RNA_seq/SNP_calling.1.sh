@@ -26,7 +26,7 @@ if ! [ -d "$outputdir" ];then
 fi
 cd $outputdir
 
-outputdir_pass1=$outputdir/STAR-pass1
+outputdir_pass1=${outputdir}/STAR-pass1
 if ! [ -d "$outputdir_pass1" ];then
     mkdir "$outputdir_pass1"
 fi
