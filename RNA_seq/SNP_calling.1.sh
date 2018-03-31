@@ -85,5 +85,5 @@ fi
 cd $outputdir_annovar
 perl $software_annovar_1 -format vcf4 ${outputdir_GATK}/output.vcf > ${outputdir_annovar}/vcf.avinput
 echo $fq_1 annovar Start at: `date` >> $log_site
-perl $software_annovar_2 ${outputdir_annovar}/vcf.avinput $software_annovar_db -buildver hg38 -out annovar -protocol refGene,knownGene,ensGene -operation g,g,g #5 min
+perl $software_annovar_2 ${outputdir_annovar}/vcf.avinput $software_annovar_db -buildver hg38 -out ${fq1}.annovar -protocol refGene,knownGene,ensGene -operation g,g,g #5 min
 echo $fq_1 annovar exit code: $? >> $log_site
