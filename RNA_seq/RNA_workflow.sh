@@ -35,7 +35,7 @@ cd $HISAT2_result_dir
 echo HISAT2 start at:    `date` >> $log_site
 $software_HISAT2 -p $threads --dta --new-summary --summary-file ${HISAT2_outputfile}.summary --novel-splicesite-outfile ${HISAT2_outputfile}.novelsplicesit -x $HISAT2_genome -1 $clean_fq_11 -2 $clean_fq_22 -S $HISAT2_outputfile > ${HISAT2_outputfile}.log 2>&1
 echo HISAT2 exit code: $? >> $log_site
-echo "HISAT2 command: $software_HISAT2 -p $threads --dta --new-summary --summary-file ${HISAT2_outputfile}.summary --novel-splicesite-outfile ${HISAT2_outputfile}.novelsplicesit -x $HISAT2_genome -1 $clean_fq_11 $clean_fq_22 -S $HISAT2_outputfile > ${HISAT2_outputfile}.log 2>&1" >> $log_site
+echo "HISAT2 command: $software_HISAT2 -p $threads --dta --new-summary --summary-file ${HISAT2_outputfile}.summary --novel-splicesite-outfile ${HISAT2_outputfile}.novelsplicesit -x $HISAT2_genome -1 $clean_fq_11 -2 $clean_fq_22 -S $HISAT2_outputfile > ${HISAT2_outputfile}.log 2>&1" >> $log_site
 
 echo samtools start at:    `date` >> $log_site
 $software_samtools sort -@ $threads -O sam -o ${HISAT2_outputfile}.sorted $HISAT2_outputfile
