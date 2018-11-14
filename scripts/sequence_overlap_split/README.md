@@ -1,5 +1,6 @@
 ## README
 
+[sequence_overlap_split.py](https://github.com/captorr/ngs/blob/master/scripts/sequence_overlap_split/sequence_overlap_split.py)
 
 将长序列切割为指定长度、指定overlap大小的短片段。
 
