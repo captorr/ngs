@@ -16,10 +16,14 @@ def options(argv):
     p.add_argument("-i", dest="file_in", metavar="file_in", help="Sequence file in format of txt")
     p.add_argument("-o", dest="overlap", metavar="[int]", help="overlap size.", type=int)
     p.add_argument("-l", dest="length", metavar="[int]", help="sequence length after splitted", type=int)
-    p.add_argument("-s", dest="start", metavar="[left/right]", choices=["left", "right"], help="Sequence split start from left or right. (default: left)", default="left")
-    p.add_argument("-t", dest="transform", action="store_true", help="Output sequence in transform. (default: False)",default=False)
-    p.add_argument("-w", dest="inturn", action="store_true",help="Output sequence in turn of transformed or not, the first sequence depend on option -t. (default: False)",default=False)
-    p.add_argument("-r", dest="report", action="store_true", help="print sequence split result on screen. (default: False)", default=False)
+    p.add_argument("-s", dest="start", metavar="[left/right]", choices=["left", "right"],
+                   help="Sequence split start from left or right. (default: left)", default="left")
+    p.add_argument("-t", dest="transform", action="store_true",
+                   help="Output sequence in transform. (default: False)",default=False)
+    p.add_argument("-w", dest="inturn", action="store_true",
+                   help="Output sequence in turn of transformed or not, the first sequence depend on option -t. (default: False)",default=False)
+    p.add_argument("-r", dest="report", action="store_true",
+                   help="print sequence split result on screen. (default: False)", default=False)
 
     if len(argv) == 1:
         p.print_help()
@@ -39,7 +43,7 @@ def trans(seq, transform=True,reverse=False):
     new_seq = ""
     if transform:
         for i in seq:
-            new_seq += dict1[i]
+            new_seq += dict1[i] if i in dict1 else i
     else:
         new_seq = seq
     if reverse:
