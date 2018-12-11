@@ -7,7 +7,7 @@
 ---
 python3 idt_porbe.py genelist.txt
 
-搜索NCBI数据库中的基因曾用命，生成新的txt，内容为：
+搜索NCBI数据库中的基因曾用名，生成新的txt，内容为：
 
 | gene symbol | input gene name | name used to be |
 | ----------- | --------------- | --------------- |
