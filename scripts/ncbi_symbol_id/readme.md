@@ -21,10 +21,12 @@ python3 idt_probe_new.py genelist.txt
 
 在NCBI数据库中检查输入的基因名的最新symbol ID，生成txt：
 
----
+| origin | real |
+
+| 输入的基因名 | 最新基因名 |
+
 origin: 输入的基因名
-real: 最新基因名
----
+real: 
 
 * 搜不到也是返回空值
 
