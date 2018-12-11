@@ -10,6 +10,7 @@ python3 idt_porbe.py genelist.txt
 搜索NCBI数据库中的基因曾用命，生成新的txt，内容为：
 
 | gene symbol | input gene name | name used to be |
+| ----------- | --------------- | --------------- |
 
 * 搜不到返回空值
 
@@ -21,9 +22,9 @@ python3 idt_probe_new.py genelist.txt
 
 在NCBI数据库中检查输入的基因名的最新symbol ID，生成txt：
 
-|origin | real|
-|------|---|
-|输入的基因名 | 最新基因名|
+| origin | real|
+| ------ | --- |
+| 输入的基因名 | 最新基因名|
 
 * 搜不到也是返回空值
 
