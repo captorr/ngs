@@ -5,7 +5,7 @@
 突然翻出来改了改，能修正列表中错误的基因名，输出正确基因名了。
 
 ---
-python3 idt_porbe.py genelist.txt
+	python3 idt_porbe.py genelist.txt
 
 搜索NCBI数据库中的基因曾用名，生成新的txt，内容为：
 
@@ -18,7 +18,7 @@ python3 idt_porbe.py genelist.txt
 
 ---
 
-python3 idt_probe_new.py genelist.txt
+	python3 idt_probe_new.py genelist.txt
 
 在NCBI数据库中检查输入的基因名的最新symbol ID，生成txt：
 
