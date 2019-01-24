@@ -1,6 +1,6 @@
 ## USAGE
 
-FACETS
+:earth_asia: FACETS
 
 1. 准备一个包含所有N\T样本的bam文件全路径列表，假定是list.txt，格式是一行两个bam先N后T空格分割。
 
